@@ -40,8 +40,9 @@ class myUserController extends Controller
             // return Redirect::back();
             return redirect("/home");
         } else {
-            echo "auth failed";
-            return redirect()->to('/');
+            // return redirect()->guest('/');
+            // return redirect()->back()->with('status', trans('Book has been successfully assigned to the reader.'));
+            return "failed!";
         }
     }
 
