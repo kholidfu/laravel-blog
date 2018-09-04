@@ -13,6 +13,8 @@
 
 use App\User;
 
+// use App\Http\Controllers\myUser;
+
 Route::get('/', array('as' => 'index', function () {
     return view('mylayout.index');
 }));
@@ -25,6 +27,8 @@ Route::group(['prefix' => 'user'], function() {
 	Route::get('/login', array('as' => 'myuser_login', function() {
 		return view('myuser.login');
 	}));
+	Route::post('/login', 'myUser\myUserController@login');
+	Route::get('/logout', 'myUser\myUserController@logout');
 });
 
 Route::get('/users', array('as' => 'users', function() {
