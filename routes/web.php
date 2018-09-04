@@ -26,11 +26,11 @@ Route::get('/users', array('as' => 'users', function() {
 // Auth::routes();
 
 Route::get('/register', array('as' => 'register', function() {
-	return view('user.register');
+	return view('myuser.register');
 }));
 
 Route::get('/login', array('as' => 'login', function() {
-	return view('user.login');
+	return view('myuser.login');
 }));
 
 Route::get('/home', 'HomeController@index')->name('home');
