@@ -11,10 +11,10 @@
             <a class="nav-link" href="{{ URL::route('index') }}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">Login</a>
+              <a class="nav-link" href="{{ URL::route('login') }}">Login</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Register</a>
+              <a class="nav-link" href="{{ URL::route('register') }}">Register</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
