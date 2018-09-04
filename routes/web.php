@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
+Route::get('/', array('as' => 'index', function () {
     return view('blog.index');
-});
+}));
 
 Auth::routes();
 
