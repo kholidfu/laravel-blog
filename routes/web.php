@@ -19,12 +19,14 @@ Route::get('/', array('as' => 'index', function () {
     return view('mylayout.index');
 }));
 
-// show login page
-Route::get('/user/login', array('as' => 'myuser_login', function() {
-	return view('mylayout.login');
-}));
+Route::prefix('user')->group(function() {
+	// show login page
+	Route::get('/login', array('as' => 'myuser_login', function() {
+		return view('mylayout.login');
+	}));
 
-Route::post('/user/login', 'LoginController@store');
+	Route::post('/login', 'LoginController@store');
+});
 
 Auth::routes();
 
