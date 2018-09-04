@@ -33,22 +33,15 @@ class myUserController extends Controller
     {
         $email = $request->Input('email');
         $password = $request->Input('password');
+        $credentials = array(['email' => $email, 'password' => $password]);
 
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Auth passed ....
-            if (Auth::attempt(array(
-                'email' => $email,
-                'password' => $password
-            ))) {
-                session(['email' => $request->get('email')]);
-                // return Redirect::back();
-                return redirect("/home");
-            } else {
-                // Session::flash('message', "Invalid credentials, please try again.");
-                // return Redirect::back();
-                return redirect("/");
-            }
-            
+        if (Auth::attempt($credentials)) {
+            session(['email' => $request->get('email')]);
+            // return Redirect::back();
+            return redirect("/home");
+        } else {
+            echo "auth failed";
+            return redirect()->to('/');
         }
     }
 
