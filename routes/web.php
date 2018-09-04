@@ -11,8 +11,16 @@
 |
 */
 
+use App\User;
+
 Route::get('/', array('as' => 'index', function () {
     return view('blog.index');
+}));
+
+Route::get('/users', array('as' => 'users', function() {
+	// pull data straight from App\User controller
+	$users = User::all();
+	return $users;
 }));
 
 Auth::routes();
