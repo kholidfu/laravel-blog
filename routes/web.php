@@ -25,12 +25,14 @@ Route::get('/users', array('as' => 'users', function() {
 
 // Auth::routes();
 
-Route::get('/register', array('as' => 'register', function() {
-	return view('myuser.register');
-}));
-
-Route::get('/login', array('as' => 'login', function() {
-	return view('myuser.login');
-}));
+Route::group(['prefix' => 'user'], function() {
+	Route::get('/register', array('as' => 'register', function() {
+		return view('myuser.register');
+	}));
+	
+	Route::get('/login', array('as' => 'login', function() {
+		return view('myuser.login');
+	}));
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
