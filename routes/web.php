@@ -17,14 +17,6 @@ Route::get('/', array('as' => 'index', function () {
     return view('mylayout.index');
 }));
 
-Route::get('/users', array('as' => 'users', function() {
-	// pull data straight from App\User controller
-	$users = User::all();
-	return $users;
-}));
-
-// Auth::routes();
-
 Route::group(['prefix' => 'user'], function() {
 	Route::get('/register', array('as' => 'register', function() {
 		return view('myuser.register');
@@ -34,5 +26,13 @@ Route::group(['prefix' => 'user'], function() {
 		return view('myuser.login');
 	}));
 });
+
+Route::get('/users', array('as' => 'users', function() {
+	// pull data straight from App\User controller
+	$users = User::all();
+	return $users;
+}));
+
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
