@@ -13,7 +13,7 @@
             <a class="nav-link" href="{{ URL::route('register') }}">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ URL::route('login') }}">Login</a>
+            <a class="nav-link" href="{{ URL::route('myuser_login') }}">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ URL::route('home') }}">Dashboard Home</a>

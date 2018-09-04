@@ -19,6 +19,13 @@ Route::get('/', array('as' => 'index', function () {
     return view('mylayout.index');
 }));
 
+// show login page
+Route::get('/user/login', array('as' => 'myuser_login', function() {
+	return view('mylayout.login');
+}));
+
+Route::post('/user/login', 'LoginController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
