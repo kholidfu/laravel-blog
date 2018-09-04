@@ -18,11 +18,11 @@ Route::get('/', array('as' => 'index', function () {
 }));
 
 Route::group(['prefix' => 'user'], function() {
-	Route::get('/register', array('as' => 'register', function() {
+	Route::get('/register', array('as' => 'myuser_register', function() {
 		return view('myuser.register');
 	}));
 	
-	Route::get('/login', array('as' => 'login', function() {
+	Route::get('/login', array('as' => 'myuser_login', function() {
 		return view('myuser.login');
 	}));
 });
@@ -33,6 +33,6 @@ Route::get('/users', array('as' => 'users', function() {
 	return $users;
 }));
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
