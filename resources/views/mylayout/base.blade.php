@@ -20,9 +20,10 @@
   <body>
     @include('mylayout.nav')
     
-    @yield('content')
-
-    @include('mylayout.footer')
+    <div class="container">
+        @yield('content')
+        @include('mylayout.footer')
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

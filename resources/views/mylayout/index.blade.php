@@ -1,9 +1,9 @@
 @extends('mylayout.base')
     @section('title', 'Index')
     @section('content')
+    
     @include('mylayout.jumbotron')
 
-    <div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
