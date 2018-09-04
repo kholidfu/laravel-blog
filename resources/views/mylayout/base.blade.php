@@ -18,11 +18,11 @@
   </head>
 
   <body>
-    @include('blog.nav')
+    @include('mylayout.nav')
     
     @yield('content')
 
-    @include('blog.footer')
+    @include('mylayout.footer')
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

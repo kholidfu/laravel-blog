@@ -14,7 +14,7 @@
 use App\User;
 
 Route::get('/', array('as' => 'index', function () {
-    return view('blog.index');
+    return view('mylayout.index');
 }));
 
 Route::get('/users', array('as' => 'users', function() {
@@ -23,6 +23,14 @@ Route::get('/users', array('as' => 'users', function() {
 	return $users;
 }));
 
-Auth::routes();
+// Auth::routes();
+
+Route::get('/register', array('as' => 'register', function() {
+	return view('user.register');
+}));
+
+Route::get('/login', array('as' => 'login', function() {
+	return view('user.login');
+}));
 
 Route::get('/home', 'HomeController@index')->name('home');
