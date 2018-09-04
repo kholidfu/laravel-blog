@@ -3,7 +3,7 @@
 @section('content')
   <div class="row">
     <div class="col-md-6" style="margin-top: 50px;">
-      <h1>Register</h1>
+      <h1>Login</h1>
       <form>
         <div class="form-group row">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
