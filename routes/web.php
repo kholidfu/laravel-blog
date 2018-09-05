@@ -35,7 +35,10 @@ Route::prefix('user')->group(function() {
   Route::post('/register', 'RegisterController@store');
 
   // show password reset date_create_from_format
-  Route::get('/password-reset', 'ResetPasswordController@showForm')->name('password_reset');
+  Route::get('/password-reset', array('as' => 'myuser_password_reset', function() {
+    return view('mylayout.password_reset');
+  }));
+  // Route::get('/password-reset', 'ResetPasswordController@showForm')->name('password_reset');
 });
 
 Auth::routes();
