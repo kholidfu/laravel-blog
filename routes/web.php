@@ -27,18 +27,26 @@ Route::prefix('user')->group(function() {
   // process login
 	Route::post('/login', 'LoginController@dologin');
 
-  // show registration form
-  Route::get('/register', array('as' => 'myuser_register', function() {
-    return view('mylayout.register');
-  }));
-  // save register info into database
-  Route::post('/register', 'RegisterController@store');
+    // show registration form
+    Route::get('/register', array('as' => 'myuser_register', function() {
+        return view('mylayout.register');
+    }));
+    // save register info into database
+    Route::post('/register', 'RegisterController@store');
 
-  // show password reset date_create_from_format
-  Route::get('/password-reset', array('as' => 'myuser_password_reset', function() {
-    return view('mylayout.password_reset');
-  }));
-  // Route::get('/password-reset', 'ResetPasswordController@showForm')->name('password_reset');
+    // 1. show form to send email
+    Route::get('/password-reset', array('as' => 'myuser_password_reset', function() {
+        return view('mylayout.password_reset');
+    }));
+    // 2. send email
+    Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.reset');
+    
+    // 3. show form to reset password
+    Route::get('/password/reset/{token}', array('as' => 'password.reset.token', function() {
+        return view('mylayout.password.reset.token');
+    }));
+    // 4. reset password
+    Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 });
 
 Auth::routes();
