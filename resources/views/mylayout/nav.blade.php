@@ -9,15 +9,21 @@
           <li class="nav-item active">
             <a class="nav-link" href="{{ URL::route('index') }}">Home <span class="sr-only">(current)</span></a>
           </li>
+          @if(Auth::check())
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('home') }}">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('logout') }}">Logout</a>
+          </li>
+          @else
           <li class="nav-item">
             <a class="nav-link" href="{{ URL::route('myuser_register') }}">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ URL::route('myuser_login') }}">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ URL::route('home') }}">Dashboard Home</a>
-          </li>
+          @endif
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
