@@ -9,7 +9,7 @@
 - [done] Custom Form processing
 - [done] Custom data validation for user login & register
 - [done] Send password reset
-- logout
+- [done] simple logout
 - custom login required
 - resetting password :: show form and process it
 - send email confirmation for registered user.
