@@ -42,7 +42,7 @@ class MyResetPassword extends Notification
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', route('password.reset.token', array('token' => token)));
+                    ->action('Notification Action', route('password.reset.token', array('token' => $this->token)))
                     ->line('Thank you for using our application!');
     }
 
