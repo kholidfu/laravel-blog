@@ -32,8 +32,8 @@
           <input type="password" name="password" class="form-control" id="password" placeholder="Password">
         </div>
         <div class="form-group">
-          <label for="confirm-password">Confirm Password</label>
-          <input type="password" name="confirm-password" class="form-control" id="confirm-password" placeholder="Password">
+          <label for="password_confirmation">Confirm Password</label>
+          <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

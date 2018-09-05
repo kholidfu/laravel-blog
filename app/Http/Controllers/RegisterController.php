@@ -17,10 +17,10 @@ class RegisterController extends Controller
     {
         // set rules
         $rules = array(
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'confirm-password' => 'required',
+            'name' => 'required|min:3|max:20',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:6',
+            // 'confirm-password' => 'required',
         );
 
         // run the validation rules on the inputs from the form
@@ -32,12 +32,12 @@ class RegisterController extends Controller
             ->withErrors($validator) // send back all errors to the login form
             ->withInput(Input::except('password')); // send back the input (not the password)
         } else {
-            // create user data for the authentication process
+            // create user data for the registration process
             $userdata = array(
                 'name' => Input::get('name'),
                 'email' => Input::get('email'),
                 'password' => Input::get('password'),
-                'confirm-password' => Input::get('confirm-password'),
+                // 'confirm-password' => Input::get('confirm-password'),
             );
 
             dd($request);
