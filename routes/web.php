@@ -24,11 +24,18 @@ Route::prefix('user')->group(function() {
 	Route::get('/login', array('as' => 'myuser_login', function() {
 		return view('mylayout.login');
 	}));
+  // process login
 	Route::post('/login', 'LoginController@dologin');
+
+  // show registration form
   Route::get('/register', array('as' => 'myuser_register', function() {
     return view('mylayout.register');
   }));
+  // save register info into database
   Route::post('/register', 'RegisterController@store');
+
+  // show password reset date_create_from_format
+  Route::get('/password-reset', 'ResetPasswordController@showForm')->name('password_reset');
 });
 
 Auth::routes();

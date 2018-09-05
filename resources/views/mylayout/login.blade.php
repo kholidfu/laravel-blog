@@ -28,6 +28,9 @@
           <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ URL::route('password_reset') }}" class="btn btn-link">
+          Forgot Your Password?
+        </a>
       </form>
     </div>
   </div>
