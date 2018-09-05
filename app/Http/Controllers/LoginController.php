@@ -13,44 +13,44 @@ use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
-    public function dologin(Request $request)
-    {
-        // set rules
-        $rules = array(
-            'email' => 'required',
-            'password' => 'required',
-        );
+  public function dologin(Request $request)
+  {
+    // set rules
+    $rules = array(
+      'email' => 'required',
+      'password' => 'required',
+    );
 
-        // run the validation rules on the inputs from the form
-        $validator = Validator::make(Input::all(), $rules);
+    // run the validation rules on the inputs from the form
+    $validator = Validator::make(Input::all(), $rules);
 
-        // if the validator fails, redirect back to the form
-        if ($validator->fails()) {
-            return Redirect::route('myuser_login')
-            ->withErrors($validator) // send back all errors to the login form
-            ->withInput(Input::except('password')); // send back the input (not the password)
-        } else {
-            // create user data for the authentication process
-            $userdata = array(
-                'email' => Input::get('email'),
-                'password' => Input::get('password'),
-            );
+    // if the validator fails, redirect back to the form
+    if ($validator->fails()) {
+      return Redirect::route('myuser_login')
+      ->withErrors($validator) // send back all errors to the login form
+      ->withInput(Input::except('password')); // send back the input (not the password)
+    } else {
+      // create user data for the authentication process
+      $userdata = array(
+        'email' => Input::get('email'),
+        'password' => Input::get('password'),
+      );
 
-            // try to login
-            if (Auth::attempt($userdata)) {
-                // validation successful
-                // redirect them to the secure section or whatever
-                return Redirect::route('home');
-                // for now we'll just echo success (even though echoing in controller is bad)
-                // echo 'SUCCESS!!';
-            } else {
-                // validation not successfull, send back to form
-                return Redirect::route('myuser_login')
-                ->withErrors([
-                    'approve' => 'Password mismatch'
-                ]);
-            }
-        }
-
+      // try to login
+      if (Auth::attempt($userdata)) {
+        // validation successful
+        // redirect them to the secure section or whatever
+        return Redirect::route('home');
+        // for now we'll just echo success (even though echoing in controller is bad)
+        // echo 'SUCCESS!!';
+      } else {
+        // validation not successfull, send back to form
+        return Redirect::route('myuser_login')
+        ->withErrors([
+            'approve' => 'Password mismatch'
+        ]);
+      }
     }
+
+  }
 }
