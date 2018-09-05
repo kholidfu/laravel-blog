@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+          <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your New Password">
         </div>
         <div class="form-group">
           <label for="password_confirmation">Confirm Password</label>
-          <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Password">
+          <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Enter Your New Password">
         </div>
         <button type="submit" class="btn btn-primary">Reset Password</button>
       </form>
