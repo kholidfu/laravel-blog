@@ -24,8 +24,11 @@ Route::prefix('user')->group(function() {
 	Route::get('/login', array('as' => 'myuser_login', function() {
 		return view('mylayout.login');
 	}));
-
-	Route::post('/login', 'LoginController@store');
+	Route::post('/login', 'LoginController@dologin');
+  Route::get('/register', array('as' => 'myuser_register', function() {
+    return view('mylayout.register');
+  }));
+  Route::post('/register', 'RegisterController@store');
 });
 
 Auth::routes();

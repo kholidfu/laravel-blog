@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
-    public function store(Request $request)
+    public function dologin(Request $request)
     {
-        // set rules 
+        // set rules
         $rules = array(
             'email' => 'required',
             'password' => 'required',
         );
-        
+
         // run the validation rules on the inputs from the form
         $validator = Validator::make(Input::all(), $rules);
 
