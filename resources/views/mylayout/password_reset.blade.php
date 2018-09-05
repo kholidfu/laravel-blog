@@ -22,7 +22,7 @@
       </div>
       @endif
 
-      <form method="POST" action={{ URL::route('password.email') }}>
+      <form method="POST" action={{ URL::route('myuser.password.reset') }}>
         @csrf
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>

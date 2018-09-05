@@ -38,12 +38,12 @@ Route::prefix('user')->group(function() {
     Route::get('/password-reset', array('as' => 'myuser_password_reset', function() {
       return view('mylayout.password_reset');
     }));
-    // 2. send email
-    Route::post('/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.reset');
+    // 2. send email (override Auth\ForgotPasswordController)
+    Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('myuser.password.reset');
 
     // 3. show form to reset password
-    Route::get('/password/reset/{token}', array('as' => 'password.reset.token', function() {
-      return view('mylayout.password.reset.token');
+    Route::get('/password/reset/{token}', array('as' => 'password.reset.token', function($token) {
+      return view('mylayout.password_reset_token', compact('token'));
     }));
     // 4. reset password
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
