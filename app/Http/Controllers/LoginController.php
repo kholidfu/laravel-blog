@@ -39,8 +39,10 @@ class LoginController extends Controller
       // try to login
       if (Auth::attempt($userdata)) {
         // validation successful
+        // get user id to build correct path
+        $userId = Auth::id();
         // redirect them to the secure section or whatever
-        return Redirect::route('home');
+        return Redirect::route('myuser_dashboard', $userId);
         // for now we'll just echo success (even though echoing in controller is bad)
         // echo 'SUCCESS!!';
       } else {

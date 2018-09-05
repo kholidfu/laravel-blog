@@ -49,6 +49,8 @@ Route::prefix('user')->group(function() {
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 });
 
-Auth::routes();
+Route::get('/user/{userId}/dashboard', 'DashboardController@index')->name('myuser_dashboard');
+
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
