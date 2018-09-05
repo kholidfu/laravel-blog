@@ -46,13 +46,15 @@ Route::prefix('user')->group(function() {
       return view('mylayout.password_reset_token', compact('token'));
     }));
     // 4. reset password
-    Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+    Route::post('/password/reset', 'Auth\ResetPasswordController@reset')->name('do.password.reset');
 
     // logout
-    Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::get('/logout', 'LoginController@logout')->name('get.logout');
+    Route::post('/logout', 'LoginController@logout')->name('logout');
 });
 
-Route::get('/user/{userId}/dashboard', 'DashboardController@index')->name('myuser_dashboard');
+// Route::get('/user/{userId}/dashboard', 'DashboardController@index')->name('myuser_dashboard');
+Route::get('/user/dashboard', 'DashboardController@index')->name('myuser_dashboard');
 
 // Auth::routes();
 

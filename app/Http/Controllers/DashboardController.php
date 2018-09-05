@@ -21,7 +21,8 @@ class DashboardController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index($userId)
+  // public function index($userId)
+  public function index()
   {
     // dd($this);
     return view('mylayout.dashboard');
