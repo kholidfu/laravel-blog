@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         // if the validator fails, redirect back to the form
         if ($validator->fails()) {
-            return Redirect::to('/user/login')
+            return Redirect::route('myuser_login')
             ->withErrors($validator) // send back all errors to the login form
             ->withInput(Input::except('password')); // send back the input (not the password)
         } else {
@@ -40,12 +40,12 @@ class LoginController extends Controller
             if (Auth::attempt($userdata)) {
                 // validation successful
                 // redirect them to the secure section or whatever
-                return Redirect::to('/home');
+                return Redirect::route('home');
                 // for now we'll just echo success (even though echoing in controller is bad)
                 // echo 'SUCCESS!!';
             } else {
                 // validation not successfull, send back to form
-                return Redirect::to('/user/login')
+                return Redirect::route('myuser_login')
                 ->withErrors([
                     'approve' => 'Password mismatch'
                 ]);

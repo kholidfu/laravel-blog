@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
 
 // use App\Http\Controllers\Controller;
 // use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -17,9 +19,9 @@ class RegisterController extends Controller
     {
         // set rules
         $rules = array(
-            'name' => 'required|min:3|max:20',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
+            'name' => 'required|string|min:3|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|confirmed|min:6',
             // 'confirm-password' => 'required',
         );
 
@@ -36,14 +38,15 @@ class RegisterController extends Controller
             $userdata = array(
                 'name' => Input::get('name'),
                 'email' => Input::get('email'),
-                'password' => Input::get('password'),
+                'password' => Hash::make(Input::get('password')),
                 // 'confirm-password' => Input::get('confirm-password'),
             );
-
-            dd($request);
-
+            // dd($userdata);
             // inserting data to dbase
-
+            $user_object = User::create($userdata);
+            // redirect to secret page
+            Auth::login($user_object, true);
+            return Redirect::route("home");
         }
 
     }
