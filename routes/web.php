@@ -16,7 +16,7 @@ use App\User;
 // use App\Http\Controllers\myUser;
 
 Route::get('/', array('as' => 'index', function () {
-    return view('mylayout.index');
+  return view('mylayout.index');
 }));
 
 Route::prefix('user')->group(function() {
@@ -29,21 +29,21 @@ Route::prefix('user')->group(function() {
 
     // show registration form
     Route::get('/register', array('as' => 'myuser_register', function() {
-        return view('mylayout.register');
+      return view('mylayout.register');
     }));
     // save register info into database
     Route::post('/register', 'RegisterController@store');
 
     // 1. show form to send email
     Route::get('/password-reset', array('as' => 'myuser_password_reset', function() {
-        return view('mylayout.password_reset');
+      return view('mylayout.password_reset');
     }));
     // 2. send email
     Route::post('/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.reset');
 
     // 3. show form to reset password
     Route::get('/password/reset/{token}', array('as' => 'password.reset.token', function() {
-        return view('mylayout.password.reset.token');
+      return view('mylayout.password.reset.token');
     }));
     // 4. reset password
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
