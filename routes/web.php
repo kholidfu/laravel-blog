@@ -47,6 +47,9 @@ Route::prefix('user')->group(function() {
     }));
     // 4. reset password
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+    // logout
+    Route::get('/logout', 'LoginController@logout')->name('logout');
 });
 
 Route::get('/user/{userId}/dashboard', 'DashboardController@index')->name('myuser_dashboard');
