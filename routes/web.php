@@ -24,6 +24,9 @@ Route::prefix('user')->group(function() {
 	Route::get('/login', array('as' => 'myuser_login', function() {
 		return view('mylayout.login');
 	}));
+  Route::get('/login', array('as' => 'login', function() {
+    return view('mylayout.login');
+  }));
     // process login
 	Route::post('/login', 'LoginController@dologin');
 
