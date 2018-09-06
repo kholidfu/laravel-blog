@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use URL;
 
 class DashboardController extends Controller
 {
@@ -13,7 +15,8 @@ class DashboardController extends Controller
    */
   public function __construct()
   {
-      $this->middleware('auth');
+
+    // $this->middleware('auth');
   }
 
   /**
@@ -24,7 +27,9 @@ class DashboardController extends Controller
   // public function index($userId)
   public function index()
   {
-    // dd($this);
+    if (!Auth::user()) {
+      return redirect()->route('myuser_login');
+    }
     return view('mylayout.dashboard');
   }
 }

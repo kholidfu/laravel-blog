@@ -11,17 +11,17 @@
           </li>
           @if(Auth::check())
           <li class="nav-item">
-            <a class="nav-link" href="{{ URL::route('home') }}">Dashboard</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{ URL::route('logout') }}">Logout</a>
           </li>
           @else
           <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('myuser_dashboard') }}">Dashboard</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ URL::route('myuser_register') }}">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ URL::route('login') }}">My Account</a>
+            <a class="nav-link" href="{{ URL::route('myuser_login') }}">My Account</a>
           </li>
           @endif
         </ul>
